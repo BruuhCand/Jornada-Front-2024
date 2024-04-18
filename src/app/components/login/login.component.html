@@ -2,19 +2,20 @@
     <img class="imagem" src="./assets/nowastee.png" alt="logo-nowasTee">
 </div>
 <div class="container">
-    <form class="form">
+    <form class="form" [formGroup]="formLogar">
         <mat-form-field class="full-width">
           <mat-label>E-mail</mat-label>
-          <input [formControl]="email"
+          <input formControlName="email" id="email"
           required matInput placeholder="Ex. fulano@mail.com">
         </mat-form-field>
       
         <mat-form-field class="full-width">
           <mat-label>Password</mat-label>
-          <input [formControl]="senha" required matInput type="password" placeholder="Ex. 123">
+          <input formControlName="senha" id="senha"
+           required matInput type="password" placeholder="Ex. 123">
         </mat-form-field>
 
-      <button [disabled]="!validaCampos()" (click)="logar()" class="button-login">login</button>
+      <button [disabled]="!formLogar.valid" (click)="logar()" class="button-login">login</button>
       </form>
      
 </div>

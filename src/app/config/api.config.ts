@@ -1,3 +1,3 @@
 export const API_CONFIG = {
-    baseUrl: 'caminho api'
+    baseUrl: 'localhost:5286'
 }
