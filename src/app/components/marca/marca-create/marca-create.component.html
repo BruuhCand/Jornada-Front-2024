@@ -1,0 +1,46 @@
+<div class="titulo">
+  <h1>CADASTRO DE MARCA</h1>
+</div>
+
+
+<form class="formulario" [formGroup]="formMarca">
+  <div class="container">
+    <div class="column">
+      <mat-form-field class="input">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" id="nome">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="input">
+        <mat-label>CNPJ</mat-label>
+        <input matInput formControlName="cnpj" id="cnpj" mask="00.000.000/0000-00">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="input">
+        <mat-label>Telefone</mat-label>
+        <input matInput formControlName="telefone" id="telefone" mask="+00 (00) 00000-0000">
+      </mat-form-field>
+    </div>
+
+    <div class="column">
+      <mat-form-field class="input">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" id="email">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="input">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="senha" id="senha">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="input">
+        <mat-label>Celular</mat-label>
+        <input matInput formControlName="celular" id="celular" mask="+00 (00) 00000-0000">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="botao">
+    <button (click)="logar()" class="button-create">login</button>
+  </div>
+
+</form>

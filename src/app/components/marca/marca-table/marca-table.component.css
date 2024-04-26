@@ -1,0 +1,36 @@
+.container {
+  width: 80%;
+  margin: auto;
+
+}
+
+h1 {
+  font-family: "Quicksand", sans-serif;
+}
+
+.titulo {
+  margin-top: 3rem;
+  margin-left: 5rem;
+}
+
+.container {
+  margin-top: 5%;
+}
+
+.botao-div {
+  width: 100%;
+  margin-bottom: 3%;
+}
+
+.botao-class{
+  background-color: #1B1B1B;
+  width: 120px;
+  height: 45px;
+  font-size: 15px;
+  color: #fff;
+  font-family: 'quicksand';
+  margin-top: 50px;
+  border-radius: 15px;
+  margin-left: 90%;
+
+}

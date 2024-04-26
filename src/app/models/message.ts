@@ -1,4 +1,6 @@
-interface MessageResponse{
+import { TokenResponse } from "./token";
+
+export interface MessageResponse{
     data: TokenResponse,
     status: number,
     title: string,
@@ -6,7 +8,6 @@ interface MessageResponse{
     validationErrors: string
 }
 
-interface TokenResponse{
-    token: string
-}
+
+
 

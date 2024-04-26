@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+h1 {
+  font-family: "Quicksand", sans-serif;
+}
+
+.container {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+ 
+}
+
+.formulario {
+  width: 80%;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.column {
+  width: 45%; /* Ajuste a largura das colunas conforme necessário */
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 70%; /* Define a largura do input para 70% do espaço disponível */
+  align-items: center;
+  margin: 5% auto;
+}
+
+.titulo{
+  margin-top: 3rem;
+  margin-left: 5rem;
+}
+
+.botao{
+  width: 100%;
+  align-items: center;
+  margin: auto;
+}
+
+.button-create{
+  display: flex; /* Adiciona display flex */
+  justify-content: center; /* Centraliza horizontalmente */
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+  background-color: #1B1B1B ;
+  color: #fff;
+  font-family: 'quicksand';
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 15px ;
+  align-items: center;
+}
+
+

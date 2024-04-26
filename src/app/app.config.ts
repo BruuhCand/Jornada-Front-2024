@@ -6,13 +6,15 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideToastr } from 'ngx-toastr';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideNgxMask } from 'ngx-mask';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
      provideClientHydration(),
       provideAnimationsAsync(),
        provideToastr(),
-       provideHttpClient(withFetch())
+       provideHttpClient(withFetch()),
+       provideNgxMask()
       ]
 
 };

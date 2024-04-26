@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component} from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
@@ -6,18 +6,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { Credenciais } from '../../models/credenciais';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
+import { MessageResponse } from '../../models/message';
+import { Router } from '@angular/router';
 
-interface MessageResponse{
-  data: TokenResponse,
-  status: number,
-  title: string,
-  message: string,
-  validationErrors: string
-}
 
-interface TokenResponse{
-  token: string
-}
 
 
 @Component({
@@ -36,10 +28,11 @@ export class LoginComponent {
   }
   
   formLogar: FormGroup;
-  loading = signal(false)
+  
   
   constructor(private toast: ToastrService,
-    private service: AuthService
+    private service: AuthService,
+    private route: Router
   ){
 
     //inicialização do form group
@@ -54,15 +47,16 @@ export class LoginComponent {
     this.creds.email = this.formLogar.value.email
     this.creds.senha = this.formLogar.value.senha
 
-    this.loading.set(true)
     this.service.authenticate(this.creds).subscribe({
      
       next: (valor: MessageResponse) =>{
         this.toast.success(valor.data.token)
-        this.loading.set(false)
+        this.service.successfulLogin(valor.data.token);
+        this.route.navigate([''])
+        
       },
       error: (valorErro: MessageResponse) =>{
-        this.toast.error(valorErro.message)
+        this.toast.error("Usuário e/ou senha inválidos");
       }
     })
 
