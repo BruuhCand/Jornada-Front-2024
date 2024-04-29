@@ -5,15 +5,19 @@ import { MarcaCreateComponent } from './components/marca/marca-create/marca-crea
 import { MarcaTableComponent } from './components/marca/marca-table/marca-table.component';
 import { NavHomeComponent } from './components/nav-home/nav-home.component';
 import { Component } from '@angular/core';
-import { Permissions } from './auth/auth.guard';
+import {  authGuard } from './auth/auth.guard';
+import { ConfigNavComponent } from './components/config-nav/config-nav.component';
 
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
-    {path: 'marca', component: MarcaTableComponent},
-    {path: 'create', component: MarcaCreateComponent},
-    {path: '', component: NavHomeComponent, canActivate:[Permissions], children:[
+    
+    {path: '', component: NavHomeComponent, canActivate:[authGuard], children:[
         {path: 'home', component: HomeComponent },
     ]},
+    {path: 'config', component: ConfigNavComponent, canActivate:[authGuard], children:[
+        {path: 'marca', component: MarcaTableComponent},
+        {path: 'marca/  create', component: MarcaCreateComponent},
+    ]}
     
 ];

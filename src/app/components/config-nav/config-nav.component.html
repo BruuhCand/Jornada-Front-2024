@@ -1,0 +1,17 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav mode="side" opened class="sideNav">
+        <div class="perfil">
+            <p>perfil cliente</p>
+        </div>
+        <mat-nav-list>
+            @for (link of links; track link) {
+            <mat-list-item>
+                <a matListItemTitle routerLink="{{link.rota}}"> {{ link.nome }}</a>
+            </mat-list-item>
+            }
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { MessageResponse } from '../models/message';
 import { API_CONFIG } from '../config/api.config';
-import { StorageService } from './storage.service';
+
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class AuthService {
 
   jwtService: JwtHelperService = new JwtHelperService();
 
-  constructor(private http: HttpClient, private storageService: StorageService) { }
+  constructor(private http: HttpClient) { }
 
 
   authenticate(creds: Credenciais):   Observable<MessageResponse>{
@@ -24,17 +24,32 @@ export class AuthService {
   }
 
    successfulLogin(authToken: string){
-
-   this.storageService.setData('token', authToken)
+    sessionStorage.setItem('token', authToken)
    }
 
    isAuthenticated(){
-   let token = this.storageService.getData('token');
+    try{
+      let token = sessionStorage.getItem ('token');
 
-     if(token != null){
-      return !this.jwtService.isTokenExpired(token)
+      if(token != null){
+       return !this.jwtService.isTokenExpired(token)
+     }
+      return false
+    }catch(error){
+      console.log(error)
+      return false
     }
-     return false
+  
+  }
+
+  logout(){
+    sessionStorage.clear()
+  }
+
+  getRole(): string{
+    const token = sessionStorage.getItem('token');
+
+    return this.jwtService.decodeToken(token)
   }
 
 }

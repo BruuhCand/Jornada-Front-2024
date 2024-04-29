@@ -8,6 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import {MatMenuModule} from '@angular/material/menu';
+import { AuthService } from '../../services/auth.service';
 
 interface Link {
   nome: string;
@@ -18,6 +19,7 @@ interface Link {
   selector: 'app-nav-home',
   standalone: true,
   imports: [MatButtonModule, MatCommonModule, CommonModule,  MatSidenavModule, MatListModule, MatIconModule, RouterModule, MatMenuModule],
+  providers:[AuthService],
   templateUrl: './nav-home.component.html',
   styleUrl: './nav-home.component.css'
 })
@@ -27,11 +29,16 @@ export class NavHomeComponent implements OnInit {
     { nome: "home", rota: "home"},
   ]
 
-  constructor(private router: Router){
+  constructor(private router: Router, private authService: AuthService){
 
   }
 
   ngOnInit(): void {
     this.router.navigate(['home'])
+  }
+
+  logout(){
+    this.router.navigate(['login']);
+    this.authService.logout(); 
   }
 }

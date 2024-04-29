@@ -42,7 +42,5 @@ export class MarcaTableComponent implements OnInit{
     })
   }
 
-  clicou(){
-    console.log("clicou aqui")
-  }
+  
 }
